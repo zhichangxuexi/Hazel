@@ -1,6 +1,6 @@
 workspace "Hazel" -- 解决方案
     architecture "x64"
-    
+    startproject "Sandbox"
     configurations
     {
         "Debug",
@@ -21,14 +21,14 @@ project "Hazel"
 	files
 	{
 	   "%{prj.name}/src/**.h",
-	   "%{prj.name}/src/**.cpp",
+	   "%{prj.name}/src/**.cpp"
 	}
 	includedirs
 	{
 	   "%{prj.name}/vendor/spdlog/include",
 	}
-	filter "system.windows"
-		cppdialect "c++17"
+	filter "system:windows"
+		cppdialect "C++17"
 		staticruntime "on"
 		systemversion "10.0"
 		
@@ -43,13 +43,13 @@ project "Hazel"
 		 
 		}
     filter "configurations:Debug"
-		defines "HZ_DEBUG"
+		defines {"HZ_DEBUG"}
 		symbols "On"
 	filter "configurations:Release"
-		defines "HZ_RELEASE"
+		defines {"HZ_RELEASE"}
 		symbols "On"
 	filter "configurations:Dist"
-		defines "HZ_DIST"
+		defines {"HZ_DIST"}
 		symbols "On"
 project "Sandbox"
     location "Sandbox"
@@ -62,19 +62,19 @@ project "Sandbox"
 	files
 	{
 	   "%{prj.name}/src/**.h",
-	   "%{prj.name}/src/**.cpp",
+	   "%{prj.name}/src/**.cpp"
 	}
 	includedirs
 	{
-	   "%{prj.name}/vendor/spdlog/include",
-	   "Hazel/src",
+	   "Hazel/vendor/spdlog/include",
+	   "Hazel/src"
 	}
 	links
 	{
 		"Hazel"
 	}
-	filter "system.windows"
-		cppdialect "c++17"
+	filter "system:windows"
+		cppdialect "C++17"
 		staticruntime "on"
 		systemversion "10.0"
 		
@@ -88,11 +88,11 @@ project "Sandbox"
 		
 		}
     filter "configurations:Debug"
-		defines "HZ_DEBUG"
+		defines {"HZ_DEBUG"}
 		symbols "On"
 	filter "configurations:Release"
-		defines "HZ_RELEASE"
+		defines {"HZ_RELEASE"}
 		symbols "On"
 	filter "configurations:Dist"
-		defines "HZ_DIST"
+		defines {"HZ_DIST"}
 		symbols "On"
